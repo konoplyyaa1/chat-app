@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chat app</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body class='bg-dark'>
+
+	<!-- container -->
+	<div class="container my-4 d-flex text-white">
+
+		<!-- left side -->
+		<div class='w-50 d-flex flex-column align-items-center'>
+			<!-- title -->
+			<h1 class='text-center'>Chat app</h1>
+
+			<!-- buttons -->
+			<div class="choose-chat d-flex flex-column justify-content-center align-items-center mt-4">
+				<h5>Choose a chat room</h5>
+				<div class='chat-buttons'>
+					<button class='btn btn-light rounded-4' id='gaming'>#gaming</button>
+					<button class='btn btn-light rounded-4' id='relax'>#relax</button>
+					<button class='btn btn-light rounded-4' id='news'>#news</button>
+					<button class='btn btn-light rounded-4' id='books'>#books</button>
+				</div>
+			</div>
+
+			<!-- new message form -->
+			<form class='new-message mb-2 mt-5 d-flex flex-row align-items-end'>
+				<div class='d-flex flex-column me-2'>
+					<label class='mb-1' for="message">Your message</label>
+					<textarea class='py-2 px-3 rounded-4 border-0' rows="1" type="text" name='message' placeholder='Enter your message'></textarea>
+				</div>
+				<input type="submit" class='btn btn-light rounded-4' value='send'>
+			</form>
+			
+			<!-- new name form -->
+			<form class='new-name d-flex flex-row align-items-end'>
+				<div class='d-flex flex-column me-2'>
+					<label class='mb-1' for="username">Enter your name</label>
+					<input class='py-2 px-3 rounded-4 border-0' type="text" name='username' placeholder='Enter your name'>
+				</div>
+				<input type="submit" class='btn btn-light rounded-4' value='send'>
+			</form>
+			<div class='success-message'></div>
+		</div>
+
+		<!-- right side -->
+		<div class='right-side w-50'>
+			<!-- output (messages) -->
+			<ul class='message-output'>
+
+			</ul>
+		</div>
+
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+	
+	<script>
+		var firebaseConfig = {
+			apiKey: 'AIzaSyCFhzvg-YBRgMYCoQMtKlKFzHmhEOHUvQE',
+			authDomain: 'udemy-project-85f2f.firebaseapp.com',
+			projectId: 'udemy-project-85f2f',
+			storageBucket: 'udemy-project-85f2f.appspot.com',
+			messagingSenderId: '782939833568',
+			appId: '1:782939833568:web:6bfde3fea8c1a945093c85',
+		}
+
+		firebase.initializeApp(firebaseConfig)
+		var db = firebase.firestore()
+	</script>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.0/date_fns.js" integrity="sha512-m4JLt4f1G2xLOvyJRy4lx13cSTMnZBH/hklmgYyX/04JPD/+NbeWuyTdrl7nGdxyp+hbjVXit6pzQTH/gUCW6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src='scripts/firebase.js'></script>
+	<script src='scripts/chat.js'></script>
+	<script src='scripts/ui.js'></script>
+	<script src='scripts/app.js'></script>
+</body>
+</html>
